@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Shop Admin | QR Warranty Passport</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-icon">▦</span><span>QR Warranty Passport<small>Shop workspace</small></span></a><nav><a href="index.html">View website</a></nav></header>
+<main class="admin-wrap">
+  <section class="admin-title"><div><span class="eyebrow">SHOP WORKSPACE</span><h1>Shop Admin</h1><p class="muted">Manage product registrations and QR passports.</p></div><span class="demo-pill">DEMO MODE</span></section>
+  <section id="loginPanel" class="panel login-panel"><h2>Shop sign in</h2><p class="muted">This starter demo uses a local demo PIN. It is not secure authentication.</p><form id="loginForm"><label>Demo PIN<input id="pin" type="password" inputmode="numeric" placeholder="Enter 1234" required></label><button class="button primary">Sign in</button><div id="loginMessage" class="message"></div></form></section>
+  <section id="dashboard" hidden>
+    <div class="stats"><div class="stat panel"><span>Total products</span><strong id="totalProducts">0</strong></div><div class="stat panel"><span>Active warranties</span><strong id="activeProducts">0</strong></div></div>
+    <div class="admin-grid">
+      <section class="panel"><div class="panel-heading"><div><span class="eyebrow">NEW RECORD</span><h2>Register a product</h2></div></div>
+        <form id="productForm" class="form-grid">
+          <label>Customer name<input name="customer" required maxlength="80" placeholder="Customer full name"></label>
+          <label>Customer phone<input name="phone" inputmode="tel" maxlength="20" placeholder="Optional"></label>
+          <label>Product name<input name="product" required maxlength="100" placeholder="e.g. Water Purifier"></label>
+          <label>Brand / Model<input name="model" maxlength="100" placeholder="e.g. Aqua Pro 7"></label>
+          <label>Purchase date<input name="purchaseDate" type="date" required></label>
+          <label>Warranty (months)<input name="months" type="number" min="0" max="240" value="12" required></label>
+          <label class="full">Bill / warranty document URL <input name="billUrl" type="url" placeholder="Optional https:// link"></label>
+          <label class="full">Shop notes <textarea name="notes" rows="2" maxlength="500" placeholder="Optional notes"></textarea></label>
+          <div class="full"><button class="button primary">Save product & create QR</button></div>
+        </form>
+        <div id="formMessage" class="message"></div>
+      </section>
+      <section class="panel qr-panel"><span class="eyebrow">QR PREVIEW</span><h2>Product QR Code</h2><div id="qrBox" class="qr-box"><span class="muted">Register a product to generate its QR code.</span></div><div id="qrDetails" class="muted small"></div><button id="downloadQr" class="button secondary" disabled>Download QR PNG</button></section>
+    </div>
+    <section class="panel records"><div class="panel-heading"><div><span class="eyebrow">YOUR RECORDS</span><h2>Registered products</h2></div><button id="exportData" class="button secondary small-button">Export JSON</button></div><div class="table-wrap"><table><thead><tr><th>Product ID</th><th>Product</th><th>Customer</th><th>Warranty until</th><th></th></tr></thead><tbody id="productRows"><tr><td colspan="5" class="muted">No products registered yet.</td></tr></tbody></table></div></section>
+    <div class="admin-foot"><button id="logout" class="text-button">Sign out</button><button id="clearDemo" class="text-button danger">Clear demo data</button></div>
+  </section>
+</main>
+<footer><span>QR Warranty Passport</span><span>Demo data is stored only in this browser.</span></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="app.js"></script><script src="admin.js"></script>
+</body></html>

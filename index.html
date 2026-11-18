@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12314b">
+  <title>QR Warranty Passport</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-icon">▦</span><span>QR Warranty Passport<small>Your product. Your digital passport.</small></span></a>
+  <nav><a href="#how">How it works</a><a href="#shops">For shops</a><a class="nav-cta" href="admin.html">Shop Admin</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">SMART PRODUCT RECORDS</span>
+      <h1>Your product warranty,<br><em>all in one place.</em></h1>
+      <p>Keep product details, purchase records, warranty dates and service history together. Scan a QR code to open a product passport.</p>
+      <div class="hero-actions"><a class="button primary" href="admin.html">Shop Admin Login</a><a class="button secondary" href="#lookup">Find my warranty</a></div>
+      <div class="trust-note">Simple for shops · Easy for customers</div>
+    </div>
+    <div class="hero-card">
+      <div class="mock-head"><span>PRODUCT PASSPORT</span><span class="status">ACTIVE</span></div>
+      <div class="product-symbol">▣</div><h3>Water Purifier</h3><p class="muted">Demo product · WP-7F2A91</p>
+      <div class="warranty-line"><span>Warranty status</span><strong>Active</strong></div>
+      <div class="warranty-line"><span>Purchased</span><strong>18 Nov 2026</strong></div>
+      <div class="warranty-line"><span>Valid until</span><strong>18 Nov 2027</strong></div>
+      <div class="fake-qr" aria-label="Decorative QR illustration"><span>▦</span></div>
+      <small class="muted">Illustrative preview only</small>
+    </div>
+  </section>
+
+  <section class="lookup panel" id="lookup">
+    <div><span class="eyebrow">CUSTOMER ACCESS</span><h2>Find your product passport</h2><p class="muted">Enter the Product ID shared by your shop.</p></div>
+    <form id="lookupForm" class="lookup-form"><input id="lookupId" placeholder="Example: QWP-ABC123" aria-label="Product ID" required><button class="button primary">Find warranty</button></form>
+    <div id="lookupMessage" class="message" role="status"></div>
+  </section>
+
+  <section class="section" id="how"><div class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2>Three simple steps</h2></div>
+    <div class="steps">
+      <article class="step"><span class="step-no">01</span><div class="step-icon">🛍️</div><h3>Shop registers</h3><p>The shop records the product, purchase date and warranty period.</p></article>
+      <article class="step"><span class="step-no">02</span><div class="step-icon">▦</div><h3>QR is created</h3><p>A unique QR code links to that product's digital passport.</p></article>
+      <article class="step"><span class="step-no">03</span><div class="step-icon">✓</div><h3>Customer scans</h3><p>Customers can view the product record and request service.</p></article>
+    </div>
+  </section>
+
+  <section class="shop-cta panel" id="shops"><div><span class="eyebrow">FOR SHOP OWNERS</span><h2>Give every product a digital passport.</h2><p class="muted">Register products and create QR codes from a simple shop dashboard.</p></div><a class="button primary" href="admin.html">Open Shop Admin</a></section>
+</main>
+<footer><span>© 2026 QR Warranty Passport</span><span>Independent product record service · Not a manufacturer warranty issuer</span></footer>
+<script src="app.js"></script>
+</body></html>
