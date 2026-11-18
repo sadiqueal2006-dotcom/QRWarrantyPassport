@@ -36,10 +36,41 @@
     render(); createQr(p.id);
   });
   $("downloadQr").addEventListener("click", () => {
-    const img = $("qrBox").querySelector("img");
-    if (!img) return;
-    const a = document.createElement("a"); a.href = img.src; a.download = (latestQrId || "product") + "-qr.png"; a.click();
+    const box = $("qrBox");
+    const img = box.querySelector("img");
+    const canvas = box.querySelector("canvas");
+    let dataUrl = "";
+
+    if (canvas && canvas.width > 0 && canvas.height > 0) {
+      dataUrl = canvas.toDataURL("image/png");
+    } else if (img) {
+      if (img.src.startsWith("data:image/")) {
+        dataUrl = img.src;
+      } else {
+        const copy = document.createElement("canvas");
+        copy.width = img.naturalWidth || img.width;
+        copy.height = img.naturalHeight || img.height;
+        const ctx = copy.getContext("2d");
+        if (ctx && copy.width && copy.height) {
+          ctx.drawImage(img, 0, 0);
+          dataUrl = copy.toDataURL("image/png");
+        }
+      }
+    }
+
+    if (!dataUrl) {
+      alert("QR image is not ready yet. Please tap Show QR again and retry.");
+      return;
+    }
+
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = (latestQrId || "product") + "-qr.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   });
+
   $("exportData").addEventListener("click", () => {
     const blob = new Blob([JSON.stringify(QWP.all(), null, 2)], {type:"application/json"});
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "qwp-demo-products.json"; a.click(); URL.revokeObjectURL(a.href);
